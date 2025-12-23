@@ -50,12 +50,12 @@ export const FreeNoticeModal = memo(() => {
   }, []);
 
   const handleClose = useCallback(() => {
-    haptic(20);
+    haptic(15);
     setIsOpen(false);
   }, []);
 
   const handleDontShowAgain = useCallback(() => {
-    haptic(30);
+    haptic(20);
     setIsOpen(false);
     setCookie('freeNoticeShown', 'true', 365);
   }, []);
@@ -74,11 +74,11 @@ export const FreeNoticeModal = memo(() => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/20 transition-opacity duration-300"
+        className="absolute inset-0 bg-black/40"
         onClick={handleClose}
       />
 
-      <div className="relative w-full max-w-sm bg-white rounded-[20px] overflow-hidden shadow-2xl max-h-[85vh] flex flex-col animate-scaleIn">
+      <div className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-xl max-h-[85vh] flex flex-col animate-[slideUp_0.2s_ease-out]">
         <div className="p-6 pt-8 space-y-6 overflow-y-auto flex-1 hide-scrollbar">
           <div className="flex justify-center">
             <div className="w-16 h-16 text-5xl flex items-center justify-center">
@@ -87,40 +87,40 @@ export const FreeNoticeModal = memo(() => {
           </div>
 
           <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold text-[#1C1C1E]">
+            <h2 className="text-2xl font-bold text-gray-900">
               欢迎使用
             </h2>
-            <p className="text-[#8E8E93] text-[15px]">
+            <p className="text-gray-600 text-sm">
               无广告 · 无限制
             </p>
           </div>
 
-          <div className="space-y-3 bg-[#F2F2F7] rounded-[16px] p-4">
+          <div className="space-y-3 bg-gray-50 rounded-xl p-4">
             <div className="flex items-start gap-3">
-              <div className="bg-[#34C759]/10 p-2 rounded-[10px] shrink-0">
-                <Icon name="check" className="w-5 h-5 text-[#34C759]" />
+              <div className="bg-green-100 p-2 rounded-lg shrink-0">
+                <Icon name="check" className="w-5 h-5 text-green-600" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[#1C1C1E] font-semibold text-[15px] mb-1">
+                <h3 className="text-gray-900 font-semibold text-sm mb-1">
                   无广告干扰
                 </h3>
-                <p className="text-[#8E8E93] text-[13px] leading-relaxed">
+                <p className="text-gray-600 text-xs leading-relaxed">
                   纯净体验,专注使用
                 </p>
               </div>
             </div>
 
-            <div className="h-[0.5px] bg-black/[0.08]" />
+            <div className="h-px bg-gray-200" />
 
             <div className="flex items-start gap-3">
-              <div className="bg-[#007AFF]/10 p-2 rounded-[10px] shrink-0">
-                <Icon name="gift" className="w-5 h-5 text-[#007AFF]" />
+              <div className="bg-blue-100 p-2 rounded-lg shrink-0">
+                <Icon name="gift" className="w-5 h-5 text-blue-600" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[#1C1C1E] font-semibold text-[15px] mb-1">
+                <h3 className="text-gray-900 font-semibold text-sm mb-1">
                   无使用限制
                 </h3>
-                <p className="text-[#8E8E93] text-[13px] leading-relaxed">
+                <p className="text-gray-600 text-xs leading-relaxed">
                   随心使用,畅享所有功能
                 </p>
               </div>
@@ -130,7 +130,7 @@ export const FreeNoticeModal = memo(() => {
           <div className="space-y-2.5 pb-safe">
             <button
               onClick={handleClose}
-              className="w-full py-3.5 bg-[#007AFF] rounded-[14px] text-white font-semibold text-[16px] shadow-[0_2px_8px_rgba(0,122,255,0.3)] active:scale-[0.96] transition-all touch-manipulation"
+              className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold text-base shadow-sm active:scale-[0.98] transition-all"
             >
               开始使用
             </button>
@@ -139,15 +139,15 @@ export const FreeNoticeModal = memo(() => {
               href="https://t.me/fang180"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => haptic(20)}
-              className="block w-full py-3 text-[#007AFF] text-[14px] font-medium text-center active:opacity-70 transition-opacity touch-manipulation"
+              onClick={() => haptic(15)}
+              className="block w-full py-3 text-blue-600 text-sm font-medium text-center hover:bg-blue-50 rounded-xl transition-colors"
             >
               加入交流群 @fang180
             </a>
 
             <button
               onClick={handleDontShowAgain}
-              className="w-full py-3 text-[#8E8E93] text-[14px] font-medium active:opacity-70 transition-opacity touch-manipulation"
+              className="w-full py-3 text-gray-500 text-sm font-medium hover:bg-gray-50 rounded-xl transition-colors"
             >
               不再提示
             </button>

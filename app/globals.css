@@ -7,7 +7,6 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-shadow: none;
   }
 
   html {
@@ -15,28 +14,26 @@
   }
 
   body {
-    @apply bg-[#F2F2F7] text-[#1C1C1E];
+    @apply bg-white text-gray-900;
     overscroll-behavior: none;
-    position: relative;
   }
 }
 
 @layer utilities {
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-2xl border border-white/30 shadow-lg;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  .card {
+    @apply bg-white border border-gray-200 shadow-sm;
   }
 
-  .glass-card-hover {
-    @apply hover:bg-white/80 hover:shadow-xl active:scale-[0.98] transition-all duration-200;
+  .card-hover {
+    @apply hover:border-gray-300 hover:shadow-md active:scale-[0.99] transition-all duration-150;
   }
 
   .btn-primary {
-    @apply bg-[#007AFF] text-white font-semibold rounded-[14px] shadow-[0_2px_8px_rgba(0,122,255,0.3)] active:scale-[0.96] transition-all duration-150;
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-sm active:scale-[0.98] transition-all duration-100;
   }
 
   .btn-secondary {
-    @apply bg-white/70 backdrop-blur-xl text-[#007AFF] font-semibold rounded-[14px] border border-white/30 active:scale-[0.96] transition-all duration-150;
+    @apply bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg border border-gray-300 active:scale-[0.98] transition-all duration-100;
   }
 
   .hide-scrollbar {
@@ -47,21 +44,11 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-
-  .smooth-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .text-clear {
-    text-shadow: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -69,16 +56,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 ::selection {
-  background: rgba(0, 122, 255, 0.2);
+  background: rgba(59, 130, 246, 0.2);
   color: inherit;
 }
 
@@ -88,31 +75,11 @@ input, textarea {
 
 @keyframes slideUp {
   from {
-    transform: translateY(100%);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
     transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
     opacity: 1;
   }
 }
